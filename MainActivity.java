@@ -119,26 +119,25 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
+                //Adds midterm to calendar.
                 history.ImportantDates();
             Intent intent = new Intent(Intent.ACTION_EDIT);
             intent.setType("vnd.android.cursor.item/event");
             intent.putExtra("title", "Mid Term");
             intent.putExtra("description", "MidTerm");
-
+            intent.putExtra("allDay", true);
             intent.putExtra("beginTime", history.getMidTerm().getTimeInMillis());
-
-
-
-            history.ImportantDates();
-            //Intent intent = new Intent(Intent.ACTION_EDIT);
-            intent.setType("vnd.android.cursor.item/event");
-            intent.putExtra("title", "Final");
-            intent.putExtra("description", "Final Exam");
-
-            intent.putExtra("beginTime", history.getFinal().getTimeInMillis());
-
             startActivity(intent);
+
+
+            //Adds final to calendar
+            Intent Finalintent = new Intent(Intent.ACTION_EDIT);
+            Finalintent.setType("vnd.android.cursor.item/event");
+            Finalintent.putExtra("title", "Final");
+            Finalintent.putExtra("allDay", true);
+            Finalintent.putExtra("description", "Final Exam");
+            Finalintent.putExtra("beginTime", history.getFinal().getTimeInMillis());
+            startActivity(Finalintent);
 
         } else if (id == R.id.nav_history_price) {
 
